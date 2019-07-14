@@ -1,11 +1,17 @@
 from django.db import models
 
 class Bb(models.Model):
-    title = models.CharField(max_length=50, verbose_name='Товар')
+    title = models.CharField(max_length=50, verbose_name='Товар', unique_for_date='published')
     content = models.TextField(null=True, blank=True, verbose_name='Описание')
     price = models.FloatField(null=True, blank=True, verbose_name='Цена')
     published = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Опубликовано')
     rubric = models.ForeignKey('Rubric', null=True, on_delete=models.PROTECT, verbose_name='Рубрика')
+    KINDS = (
+        ('b', 'Куплю'),
+        ('s', 'Продам'),
+        ('c', 'Обменяю'),
+    )
+    kind = models.CharField(max_length=1, choices=KINDS)
 
     class Meta:
         verbose_name_plural = 'Объявления'

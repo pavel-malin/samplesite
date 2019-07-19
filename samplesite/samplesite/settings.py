@@ -119,3 +119,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# URL_Index
+ABSOLUTE_URL_OVERRIDER = {
+    'bboard.rubric': lambda rec: "/bboard/%s/" % rec.pk,
+}

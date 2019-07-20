@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'p-8w)b^rk#(y8o#m)&w4!i%1cd($u4j)l2i&ho9h4ri61sxge-'
+SECRET_KEY = '7gfq66s%3x2c7rgy1f=2g!2pu5(4tvh=76m9bt^2r1l64v@++8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -120,7 +120,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# URL_Index
+# Declarative
 ABSOLUTE_URL_OVERRIDER = {
     'bboard.rubric': lambda rec: "/bboard/%s/" % rec.pk,
 }

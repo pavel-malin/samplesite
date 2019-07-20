@@ -13,6 +13,12 @@ class Bb(models.Model):
    #     ('c', 'Обменяю'),
    # )
    # kind = models.CharField(max_length=1, choices=KINDS)
+    def title_and_price(self):
+        if self.price:
+            return '%s (%.2f)' % (self.title, self.price)
+        else:
+            return self.title
+    title_and_price.short_description = 'Название и цена'
 
     class Meta:
         verbose_name_plural = 'Объявления'

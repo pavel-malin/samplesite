@@ -3,7 +3,7 @@
 {% block content %}
 {% for bb in bbs %}
 <div>
-    <h2>{{ bb.title }}</h2>
+    <h2>{{ bb.title_and_price }}</h2>
     <p>{{ bb.content }}</p>
     <p><a href="{{ rubric.get_absolute_url }}">{{ rubric.name }}</a></p> <!--Declarative-->
     <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>

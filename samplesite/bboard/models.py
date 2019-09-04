@@ -16,6 +16,7 @@ class Bb(models.Model):
    #     ('c', 'Обменяю'),
    # )
    # kind = models.CharField(max_length=1, choices=KINDS)
+
     def title_and_price(self):
         if self.price:
             return '%s (%.2f)' % (self.title, self.price)
@@ -30,6 +31,7 @@ class Bb(models.Model):
 
 class Rubric(models.Model):
     name = models.CharField(max_length=20, db_index=True, verbose_name='Название')
+    
     def __str__(self):
         return self.name
 
@@ -40,12 +42,15 @@ class Rubric(models.Model):
 
 
 class AdvUser(models.Model):
+    
     is_activated = models.BooleanField(default=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 class Spare(models.Model):
+    
      name = models.CharField(max_length=30)
 
 class Machine(models.Model):
+    
     name = models.CharField(max_length=30)
     spares = models.ManyToManyField(Spare)

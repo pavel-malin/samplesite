@@ -19,7 +19,7 @@ class Bb(models.Model):
                                 validators=[validate_even])
     published = models.DateTimeField(auto_now_add=True, db_index=True,
                                       verbose_name='Опубликовано')
-    rubric = models.ForeignKey('Rubric', null=True, 
+    rubric = models.ForeignKey('Rubric', null=True,
                                on_delete=models.PROTECT,
                             verbose_name='Рубрика', related_name='entries')
 

@@ -21,7 +21,9 @@ class Bb(models.Model):
                                       verbose_name='Опубликовано')
     rubric = models.ForeignKey('Rubric', null=True,
                                on_delete=models.PROTECT,
-                            verbose_name='Рубрика', related_name='entries')
+                               verbose_name='Рубрика', 
+                               related_name='entries',
+                               related_query_name='entry')
 
     
 

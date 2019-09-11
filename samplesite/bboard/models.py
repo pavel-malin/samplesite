@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 from django.core import validators
 from django.contrib.auth.models import User
@@ -19,11 +21,12 @@ class Bb(models.Model):
                                 validators=[validate_even])
     published = models.DateTimeField(auto_now_add=True, db_index=True,
                                       verbose_name='Опубликовано')
-    rubric = models.ForeignKey('Rubric', null=True,
+    rubric = models.ForeignKey('Rubric',
                                on_delete=models.PROTECT,
                                verbose_name='Рубрика', 
-                               related_name='entries',
                                related_query_name='entry')
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, 
+                          editable=False)
 
     
 
@@ -60,6 +63,7 @@ class Bb(models.Model):
 
 class Rubric(models.Model):
     name = models.CharField(max_length=20, db_index=True, verbose_name='Название')
+    # rubric = models.ForeignKey('rubrics.Rubric', on_delete=models.PROTECT)
     
     def __str__(self):
         return self.name

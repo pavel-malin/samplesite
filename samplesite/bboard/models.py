@@ -25,8 +25,8 @@ class Bb(models.Model):
                                on_delete=models.PROTECT,
                                verbose_name='Рубрика', 
                                related_query_name='entry')
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, 
-                          editable=False)
+    #ids = models.UUIDField(primary_key=True, default=uuid.uuid4, 
+    #                      editable=False)
 
     
 

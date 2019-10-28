@@ -1,3 +1,3 @@
 .vscode/
 11_env/
-__pycache__/
+.gitignore

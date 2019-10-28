@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from .models import Bb, Rubric
 from .forms import BbForm
 
+
 def index(request):
     bbs = Bb.objects.all()
     rubrics = Rubric.objects.all()
@@ -16,8 +17,13 @@ def by_rubric(request, rubric_id):
     bbs = Bb.objects.filter(rubric=rubric_id)
     rubrics = Rubric.objects.all()
     current_rubric = Rubric.objects.get(pk=rubric_id)
-    context = {'bbs': bbs, 'rubrics': rubrics, 'current_rubric': current_rubric}
+    context = {
+        'bbs': bbs,
+        'rubrics': rubrics,
+        'current_rubric': current_rubric
+    }
     return render(request, 'bboard/by_rubric.html', context)
+
 
 class BbCreateView(CreateView):
     template_name = 'bboard/create.html'
